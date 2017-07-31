@@ -11,4 +11,7 @@ RUN apt update && apt install curl libicu57 libunwind8 -y \
  && curl https://download.microsoft.com/download/F/A/A/FAAE9280-F410-458E-8819-279C5A68EDCF/dotnet-sdk-2.0.0-preview2-006497-linux-x64.tar.gz -o 2.0.tar.gz \
  && tar -xvf *.tar.gz 
 
+RUN PATH=$PATH:/opt/dotnet/1.1 dotnet --version
+RUN PATH=$PATH:/opt/dotnet/2.0 dotnet --version
+
 CMD /container-prep.sh
