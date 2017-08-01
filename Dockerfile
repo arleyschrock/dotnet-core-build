@@ -1,6 +1,6 @@
 FROM ubuntu:16.10
 
-RUN apt update && apt install curl libicu57 libunwind8 -y \
+RUN apt update && apt install curl libicu57 libunwind8 libcurl4-openssl-dev -y \
  && mkdir /opt/dotnet \
  && mkdir /opt/dotnet/1.1 \
  && cd /opt/dotnet/1.1 \
