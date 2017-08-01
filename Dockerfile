@@ -11,7 +11,18 @@ RUN apt update && apt install curl libicu57 libunwind8 -y \
  && curl https://download.microsoft.com/download/F/A/A/FAAE9280-F410-458E-8819-279C5A68EDCF/dotnet-sdk-2.0.0-preview2-006497-linux-x64.tar.gz -o 2.0.tar.gz \
  && tar -xvf *.tar.gz 
 
-RUN PATH=$PATH:/opt/dotnet/1.1 dotnet --version
-RUN PATH=$PATH:/opt/dotnet/2.0 dotnet --version
+RUN mkdir warmup \
+    && cd warmup \
+    && PATH=/opt/dotnet/1.1:$PATH dotnet new \
+    && cd .. \
+    && rm -rf warmup \
+    && rm -rf /tmp/NuGetScratch
+
+RUN mkdir warmup \
+    && cd warmup \
+    && PATH=/opt/dotnet/2.0:$PATH dotnet new \
+    && cd .. \
+    && rm -rf warmup \
+    && rm -rf /tmp/NuGetScratch
 
 CMD /container-prep.sh
