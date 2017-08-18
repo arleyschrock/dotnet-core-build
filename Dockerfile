@@ -8,7 +8,7 @@ RUN apt update && apt install curl libicu57 libunwind8 libcurl4-openssl-dev -y \
  && tar -xvf *.tar.gz \
  && mkdir ../2.0 \
  && cd ../2.0 \
- && curl https://download.microsoft.com/download/F/A/A/FAAE9280-F410-458E-8819-279C5A68EDCF/dotnet-sdk-2.0.0-preview2-006497-linux-x64.tar.gz -o 2.0.tar.gz \
+ && curl https://download.microsoft.com/download/1/B/4/1B4DE605-8378-47A5-B01B-2C79D6C55519/dotnet-sdk-2.0.0-linux-x64.tar.gz -o 2.0.tar.gz \
  && tar -xvf *.tar.gz 
 
 RUN mkdir warmup \
